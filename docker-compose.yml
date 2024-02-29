@@ -23,7 +23,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_ADMIN_USER}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ADMIN_PASS}
     volumes:
-      - mongodbdata:/data/db
+      - mongodb-data:/data/db
     networks:
       - mongodb-network
 
@@ -40,12 +40,13 @@ services:
     depends_on:
       - mongodb
     volumes:
-      - mongodbdata:/data/db
+      - mongodb-express-data:/data/db
     networks:
       - mongodb-network
 
 volumes:
-  mongodbdata:
+  mongodb-data:
+  mongodb-express-data:
 
 networks:
   mongodb-network:
